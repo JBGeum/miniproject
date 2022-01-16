@@ -42,11 +42,11 @@ public class BoardService {
 	public int deleteBoard(int no) {
 		return boardDAO.deleteBoard(no);
 	}
-
 	public List<Board> getArticleList() {		
 		return boardDAO.getArticleList();
 	}
 
+	
 	public List<Board> getArticlebyTag(String tag) {		
 		return boardDAO.getArticlebyTag(tag);
 	}

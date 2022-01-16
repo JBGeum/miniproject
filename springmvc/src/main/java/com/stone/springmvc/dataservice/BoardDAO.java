@@ -108,6 +108,7 @@ public class BoardDAO {
 		return board;
 	}
 	
+
 	//모든 게시글 가져오기	
 	public List<Board> getArticleList() {	
 		List<Board> boardList = new ArrayList<Board>();
@@ -135,6 +136,36 @@ public class BoardDAO {
 		}
 		return boardList;
 	}
+	/*
+	 		//일정 페이지만큼의 게시글 가져오기	
+	public Object[] getArticleList() {	//오브젝트 배열 반환 : List<Board> boardList, int totalArticleNum
+		int totalArticleNum = 0;	//총 게시글 수의 합(DB에서 count로 얻어온 현제 게시물 숫자
+		List<Board> boardList = new ArrayList<Board>();
+		String query = "select * from diaryboard order by no desc";
+		try {
+			conn = JDBCUtil.getConnection(); //커넥션 가져오기			 
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {	
+			Board board = new Board();	
+			board.setNo(rs.getInt("no"));
+			board.setTitle(rs.getString("title"));
+			board.setTag(rs.getString("tag"));
+			board.setContents(rs.getString("contents"));
+			board.setRegdate(rs.getTimestamp("regdate"));
+			board.setHit(rs.getInt("hit"));
+			boardList.add(board);
+			}
+			return boardList;			
+		} catch (SQLException e) {
+			System.out.println("가져오기 실패");
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs, pstmt, conn);	//rs, pstmt, conn 닫기
+		}
+		return boardList;
+	}
+*/	
 	
 	//해당되는 태그의 게시글 가져오기	
 	public List<Board> getArticlebyTag(String tag) {	
