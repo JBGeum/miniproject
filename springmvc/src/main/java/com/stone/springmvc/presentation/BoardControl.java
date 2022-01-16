@@ -110,7 +110,7 @@ public class BoardControl {
 		mv.setViewName("error");				
 		return mv;
 	}
-
+	/*
 	@RequestMapping("list")	// 전체게시물목록확인
 	ModelAndView getArticleList() {
 		List<Board> boards = boardService.getArticleList();
@@ -119,7 +119,7 @@ public class BoardControl {
 		mv.addObject("boards",boards);
 		return mv;
 	}
-	/*	
+*/		
 	@RequestMapping("list")
 	// url의 pageno(필수아님, 디폴트 값 1)를 받아와 int pageNo로 등록
 	ModelAndView getArticleList(@RequestParam(value="pageno",required=false,defaultValue="1")int pageNo) {
@@ -148,7 +148,7 @@ public class BoardControl {
 		return mv;
 	}
 	
-*/	
+	
 	
 	
 	@RequestMapping("search")	// 게시글 태그로 검색 > 목록표시
